@@ -28,8 +28,9 @@ public class MessageProducerController {
 
 	@PostMapping("/send")
 	public void sendMessage(@RequestBody Envelop envelop) {
+		log.info("Sending Envelop Message to topic :{}", envelop);
 		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(topic, envelop);
-		log.info("Received Envelop Message :{}", envelop);
+		
 	}
 
 }
