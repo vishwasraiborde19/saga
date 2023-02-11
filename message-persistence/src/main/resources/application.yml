@@ -1,0 +1,38 @@
+#### app configs
+app:
+   kafka:
+      producer:
+         topic: PAYMENT_INIT
+   
+
+#### spring context configs
+spring:
+   application:
+      name: message-producer
+   kafka:
+     bootstrap-servers: localhost:9092
+     producer:
+         key-serializer: org.apache.kafka.common.serialization.StringSerializer
+         value-serializer: org.springframework.kafka.support.serializer.JsonSerializer  
+server:
+   port: 9002
+
+#### eureka registry configs
+eureka:
+   instance:
+      hostname: 192.168.0.11
+      preferIpAddress: true
+   client:
+      service-url:
+         defaultZone: http://192.168.0.11:8761/eureka
+
+#### open-api  configs
+springdoc:
+   api-docs:
+      path:   /api-docs
+   swagger-ui:
+      path:   /swagger-ui.html
+
+#### spring  configs server
+#spring.config.import=configserver:http://localhost:8888
+
