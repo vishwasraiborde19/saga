@@ -1,4 +1,4 @@
-package com.paymen.core.message.producer.vo;
+package com.paymen.core.message.producer.vo.payload.creditor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,11 +11,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Envelop {
-	
-	String messageId;
-	String verionId;
-	String eventId;
-	Payload payload;
-
+public class CreditorAccount {
+	String name;
 }

@@ -1,4 +1,4 @@
-package com.paymen.core.message.producer.vo;
+package com.paymen.core.message.producer.vo.payload.debtor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +11,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Payload {
-	
-	String requestPayload;
-
+public class Debtor {
+	String name;
 }

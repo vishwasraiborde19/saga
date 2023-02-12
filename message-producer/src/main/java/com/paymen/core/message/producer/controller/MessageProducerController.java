@@ -1,17 +1,14 @@
 package com.paymen.core.message.producer.controller;
 
-import java.util.concurrent.CompletableFuture;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.paymen.core.message.producer.vo.Envelop;
+import com.paymen.core.message.Envelop;
+import com.paymen.core.message.PaymentTransaction;
+import com.paymen.core.message.producer.api.ProducerService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,16 +18,26 @@ import lombok.extern.slf4j.Slf4j;
 public class MessageProducerController {
 
 	@Autowired
-	KafkaTemplate<String, Object> kafkaTemplate;
+	ProducerService producerService;
 
-	@Value("${app.kafka.producer.topic:DLQ}")
-	private String topic;
-
-	@PostMapping("/send")
-	public void sendMessage(@RequestBody Envelop envelop) {
+	@PostMapping("/send/blank")
+	public void sendGenericMessage(@RequestBody Envelop envelop) {
 		log.info("Sending Envelop Message to topic :{}", envelop);
-		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(topic, envelop);
-		
+		producerService.sendMessage(envelop);
 	}
 
+	@PostMapping("/send/payment")
+	public void sendPaymentTransactionEnvelop(@RequestBody Envelop envelop) {
+		log.info("Sending Envelop Message to topic :{}", envelop);
+		producerService.sendMessage(envelop);
+	}
+
+	@PostMapping("/send/paymentTransacton")
+	public void sendPaymentTransaction(@RequestBody PaymentTransaction paymentTransaction) {
+		log.info("Sending Envelop Message to topic :{}", paymentTransaction);
+
+		Envelop envelop = new Envelop();
+		envelop.setPayload(paymentTransaction);
+		producerService.sendMessage(envelop);
+	}
 }

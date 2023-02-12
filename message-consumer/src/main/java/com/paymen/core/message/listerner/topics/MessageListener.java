@@ -4,7 +4,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-import com.paymen.core.message.producer.vo.Envelop;
+import com.paymen.core.message.Envelop;
 
 import lombok.extern.slf4j.Slf4j;
 

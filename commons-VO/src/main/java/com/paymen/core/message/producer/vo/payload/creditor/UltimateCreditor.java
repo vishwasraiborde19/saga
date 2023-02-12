@@ -1,6 +1,4 @@
-package com.paymen.core.message.producer.entity;
-
-import org.springframework.data.cassandra.core.mapping.Table;
+package com.paymen.core.message.producer.vo.payload.creditor;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,12 +6,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Table
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class Payload {
-	
-	String requestPayload;
-
+@ToString
+@EqualsAndHashCode
+public class UltimateCreditor {
+	String name;
 }

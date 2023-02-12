@@ -6,6 +6,8 @@ import java.util.Map;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.stereotype.Service;
+
 
 public class KafkaMessageProducerConfig {
 	

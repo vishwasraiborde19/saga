@@ -1,4 +1,4 @@
-package com.paymen.core.message.producer.vo;
+package com.paymen.core.message;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -14,7 +14,7 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import com.paymen.core.message.producer.vo.Envelop;
+import com.paymen.core.message.Envelop;
 
 //@EnableKafka
 //@Configuration
