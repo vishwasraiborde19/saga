@@ -1,4 +1,4 @@
-package com.paymen.core.message.listerner.config;
+package com.paymen.core.clearing.config;
 
 import java.util.HashMap;
 import java.util.Map;
